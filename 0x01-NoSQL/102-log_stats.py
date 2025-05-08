@@ -13,7 +13,7 @@ def display_nginx_stats(collection):
     print("Methods:")
     for method in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']:
         count = collection.count_documents({'method': method})
-        print(f"\tmethod {method}: {count}")
+        print(f"    method {method}: {count}")
 
     status_check_count = collection.count_documents({
         'method': 'GET',
@@ -28,7 +28,7 @@ def display_nginx_stats(collection):
 
     print("IPs:")
     for ip, count in ip_counts.most_common(10):
-        print(f"\t{ip}: {count}")
+        print(f"    {ip}: {count}")
 
 
 def main():
