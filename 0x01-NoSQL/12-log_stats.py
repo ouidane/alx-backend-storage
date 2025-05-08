@@ -12,7 +12,7 @@ def display_nginx_stats(collection):
     print("Methods:")
     for method in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']:
         count = collection.count_documents({'method': method})
-        print(f"\tmethod {method}: {count}")
+        print(f"    method {method}: {count}")
 
     status_check_count = collection.count_documents({
         'method': 'GET',
@@ -26,6 +26,7 @@ def main():
     client = MongoClient("mongodb://127.0.0.1:27017")
     db = client.logs
     display_nginx_stats(db.nginx)
+    client.close()
 
 
 if __name__ == "__main__":
